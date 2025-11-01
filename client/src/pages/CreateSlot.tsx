@@ -40,7 +40,7 @@ const CreateSlot: React.FC = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:3000/api/slot/Create-slots", {
+      const response = await fetch("https://slotswapper1.onrender.com/api/slot/Create-slots", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -65,7 +65,7 @@ const CreateSlot: React.FC = () => {
       // Success animation and redirect
       setIsLoading(false);
       setTimeout(() => {
-        navigate("/my-slots");
+        navigate("/SlotSwapper/my-slots");
       }, 1500);
       
     } catch (err) {

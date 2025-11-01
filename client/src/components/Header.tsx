@@ -44,7 +44,7 @@ const Header: React.FC = () => {
     localStorage.removeItem("token");
     setUser(null);
     setIsMenuOpen(false);
-    navigate("/login");
+    navigate("/SlotSwapper/login");
   };
 
   const isActiveRoute = (path: string) => {
@@ -85,7 +85,7 @@ const Header: React.FC = () => {
             {user ? (
               <>
                 <Link
-                  to= "/your-swaps"
+                  to= "/SlotSwapper/your-swaps"
                   className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 ${
                     isActiveRoute('/dashboard') 
                       ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-2xl shadow-cyan-500/25' 
@@ -97,7 +97,7 @@ const Header: React.FC = () => {
                   Your Swaps
                 </Link>
                 <Link
-                  to="/create-slot"
+                  to="/SlotSwapper/create-slot"
                   className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 ${
                     isActiveRoute('/create-slot') 
                       ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-2xl shadow-cyan-500/25' 
@@ -109,7 +109,7 @@ const Header: React.FC = () => {
                   ➕ Create Slot
                 </Link>
                 <Link
-                  to="/my-slots"
+                  to="/SlotSwapper/my-slots"
                   className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 ${
                     isActiveRoute('/my-slots') 
                       ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-2xl shadow-cyan-500/25' 
@@ -147,7 +147,7 @@ const Header: React.FC = () => {
             ) : (
               <>
                 <Link
-                  to="/login"
+                  to="/SlotSwapper/login"
                   className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 ${
                     isActiveRoute('/login') 
                       ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-2xl shadow-cyan-500/25' 
@@ -159,7 +159,7 @@ const Header: React.FC = () => {
                   🔑 Login
                 </Link>
                 <Link
-                  to="/signup"
+                  to="/SlotSwapper/signup"
                   className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 ${
                     isScrolled 
                       ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-2xl shadow-cyan-500/25 hover:from-cyan-600 hover:to-blue-700' 
@@ -225,7 +225,7 @@ const Header: React.FC = () => {
                   📊 Dashboard
                 </Link>
                 <Link
-                  to="/create-slot"
+                  to="/SlotSwapper/create-slot"
                   className={`block px-4 py-3 rounded-xl font-semibold transition-all ${
                     isActiveRoute('/create-slot') 
                       ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white' 
@@ -236,7 +236,7 @@ const Header: React.FC = () => {
                   ➕ Create Slot
                 </Link>
                 <Link
-                  to="/my-slots"
+                  to="/SlotSwapper/my-slots"
                   className={`block px-4 py-3 rounded-xl font-semibold transition-all ${
                     isActiveRoute('/my-slots') 
                       ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white' 
@@ -269,7 +269,7 @@ const Header: React.FC = () => {
                   🔑 Login
                 </Link>
                 <Link
-                  to="/signup"
+                  to="/SlotSwapper/signup"
                   className={`block px-4 py-3 rounded-xl font-semibold transition-all ${
                     isScrolled 
                       ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white hover:from-cyan-600 hover:to-blue-700' 

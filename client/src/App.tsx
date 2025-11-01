@@ -17,17 +17,17 @@ function App() {
     <Router>
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/create-slot" element={<CreateSlot />} />
-        <Route path="/my-slots" element={<MySlot />} />
+        <Route path="/SlotSwapper/" element={<Home />} />
+        <Route path="/SlotSwapper/login" element={<Login />} />
+        <Route path="/SlotSwapper/signup" element={<Signup />} />
+        <Route path="/SlotSwapper/dashboard" element={<Dashboard />} />
+        <Route path="/SlotSwapper/create-slot" element={<CreateSlot />} />
+        <Route path="/SlotSwapper/my-slots" element={<MySlot />} />
         {/* Correct dynamic route syntax */}
-        <Route path="/slot/:slotId" element={<SlotDetails />} />
-        <Route path="/swap/:slotId" element={<SwapPage />} />
+        <Route path="/SlotSwapper/slot/:slotId" element={<SlotDetails />} />
+        <Route path="/SlotSwapper/swap/:slotId" element={<SwapPage />} />
 
-<Route path="/your-swaps" element={<SwapManagementPage />} />
+       <Route path="/SlotSwapper/your-swaps" element={<SwapManagementPage />} />
       </Routes>
       <Footer />
     </Router>

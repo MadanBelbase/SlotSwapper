@@ -44,7 +44,7 @@ const MySlots: React.FC = () => {
 
         if (!userEmail) throw new Error("Invalid token: user email not found");
 
-        const response = await fetch(`http://localhost:3000/api/slot/my-slots/${userEmail}`, {
+        const response = await fetch(`https://slotswapper1.onrender.com/api/slot/my-slots/${userEmail}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -166,14 +166,14 @@ const MySlots: React.FC = () => {
                 {/* Action Buttons */}
                 <div className="flex gap-2 pt-4 border-t border-white/10 mt-4">
                   <Link
-                    to={`/slot/${slot._id}`}
+                    to={`/SlotSwapper/slot/${slot._id}`}
                     className="flex-1 py-2 px-3 bg-blue-500/20 hover:bg-blue-500/30 border border-blue-500/50 text-blue-300 rounded-xl text-sm font-semibold text-center transition-all"
                   >
                     👁️ View
                   </Link>
                   {slot.isSwappable && (
                     <button
-                      onClick={() => navigate(`/swap/${slot._id}`)}
+                      onClick={() => navigate(`/SlotSwapper/swap/${slot._id}`)}
                       className="flex-1 py-2 px-3 bg-yellow-500/20 hover:bg-yellow-500/30 border border-yellow-500/50 text-yellow-300 rounded-xl text-sm font-semibold text-center transition-all transform hover:scale-105"
                     >
                       📋 Swap

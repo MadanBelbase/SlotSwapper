@@ -61,7 +61,7 @@ const SignupForm: React.FC = () => {
     setIsLoading(true);
     
     try {
-      const response = await fetch('http://localhost:3000/api/auth/signup', {
+      const response = await fetch('https://slotswapper1.onrender.com/api/auth/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -73,7 +73,7 @@ const SignupForm: React.FC = () => {
 
       const result = await response.json();
       if (response.ok) {
-        navigate("/login");
+        navigate("/SlotSwapper/login");
       } else {
         setBackendError(result.message || 'Signup failed');
       }
@@ -243,7 +243,7 @@ const SignupForm: React.FC = () => {
               <p className="text-gray-400">
                 Already have an account?{' '}
                 <Link 
-                  to="/login" 
+                  to="/SlotSwapper/login" 
                   className="text-cyan-300 hover:text-cyan-200 font-semibold transition-colors duration-300 hover:underline"
                 >
                   Sign in here

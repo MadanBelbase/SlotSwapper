@@ -52,7 +52,7 @@ const SwapManagementPage: React.FC = () => {
   const fetchReceivedRequests = async () => {
     try {
       setLoading(prev => ({ ...prev, received: true }));
-      const res = await axios.get("http://localhost:3000/api/swap/received", axiosConfig);
+      const res = await axios.get("https://slotswapper1.onrender.com/api/swap/received", axiosConfig);
       setReceivedRequests(res.data.requests || []);
     } catch (err: any) {
       console.error("Error fetching received requests:", err);
@@ -65,7 +65,7 @@ const SwapManagementPage: React.FC = () => {
   const fetchMyRequests = async () => {
     try {
       setLoading(prev => ({ ...prev, myRequests: true }));
-      const res = await axios.get(`http://localhost:3000/api/swap/my-requests/${userEmail}`, axiosConfig);
+      const res = await axios.get(`https://slotswapper1.onrender.com/api/swap/my-requests/${userEmail}`, axiosConfig);
       setMyRequests(res.data.requests || []);
     } catch (err: any) {
       console.error("Error fetching my requests:", err);
@@ -79,8 +79,8 @@ const SwapManagementPage: React.FC = () => {
     try {
       setLoading(prev => ({ ...prev, logs: true }));
       // Since we don't have a specific logs endpoint, we'll use all requests and filter
-      const receivedRes = await axios.get("http://localhost:3000/api/swap/received", axiosConfig);
-      const myRes = await axios.get(`http://localhost:3000/api/swap/my-requests/${userEmail}`, axiosConfig);
+      const receivedRes = await axios.get("https://slotswapper1.onrender.com/api/swap/received", axiosConfig);
+      const myRes = await axios.get(`https://slotswapper1.onrender.com/api/swap/my-requests/${userEmail}`, axiosConfig);
       
       const allRequests = [
         ...(receivedRes.data.requests || []),
@@ -107,7 +107,7 @@ const SwapManagementPage: React.FC = () => {
   const handleApproveReject = async (requestId: string, action: "APPROVE" | "REJECT") => {
     try {
       await axios.put(
-        `http://localhost:3000/api/swap/${requestId}/status`, 
+        `https://slotswapper1.onrender.com/api/swap/${requestId}/status`, 
         { status: action }, 
         axiosConfig
       );
@@ -123,7 +123,7 @@ const SwapManagementPage: React.FC = () => {
   const handleCancelRequest = async (requestId: string) => {
     try {
       await axios.put(
-        `http://localhost:3000/api/swap/${requestId}/cancel`, 
+        `https://slotswapper1.onrender.com/api/swap/${requestId}/cancel`, 
         {}, 
         axiosConfig
       );

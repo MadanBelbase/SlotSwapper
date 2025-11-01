@@ -15,7 +15,7 @@ const LoginPage: React.FC = () => {
     setErrorMessage('');
     
     try {
-      const response = await fetch('http://localhost:3000/api/auth/login', {
+      const response = await fetch('https://slotswapper1.onrender.com/api/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -30,7 +30,7 @@ const LoginPage: React.FC = () => {
         localStorage.setItem('token', result.token);
         // Success animation before navigation
         setTimeout(() => {
-          navigate('/dashboard');
+          navigate('/SlotSwapper/dashboard');
         }, 1000);
       } else {
         setErrorMessage(result.message || 'Invalid email or password');

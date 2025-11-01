@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 
+
 interface Slot {
   _id: string;
   name: string;
@@ -66,7 +67,7 @@ const SwapPage: React.FC = () => {
         setUserId(decoded.id);
 
         // Fetch target slot details
-        const slotRes = await fetch(`http://localhost:3000/api/slot/${slotId}`, {
+        const slotRes = await fetch(`https://slotswapper1.onrender.com/api/slot/${slotId}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         
@@ -98,7 +99,7 @@ const SwapPage: React.FC = () => {
         // Try to fetch ALL swappable slots (not just user's slots)
         try {
           const allSlotsRes = await fetch(
-            `http://localhost:3000/api/swap/swappable-slots`,
+            `https://slotswapper1.onrender.com/api/swap/swappable-slots`,
             { headers: { Authorization: `Bearer ${token}` } }
           );
 
@@ -126,7 +127,7 @@ const SwapPage: React.FC = () => {
         if (swappableSlots.length === 0) {
           try {
             const userSlotsRes = await fetch(
-              `http://localhost:3000/api/slot/my-slots/${decoded.email}`,
+              `https://slotswapper1.onrender.com/api/slot/my-slots/${decoded.email}`,
               { headers: { Authorization: `Bearer ${token}` } }
             );
 
@@ -173,7 +174,7 @@ const SwapPage: React.FC = () => {
     setIsSubmitting(true);
 
     try {
-      const res = await fetch("http://localhost:3000/api/swap/request", {
+      const res = await fetch("https://slotswapper1.onrender.com/api/swap/request", {
         method: "POST",
         headers: { 
           "Content-Type": "application/json", 
@@ -194,7 +195,7 @@ const SwapPage: React.FC = () => {
       const result = await res.json();
       
       alert("Swap request sent successfully! 🎉");
-      navigate("/your-swaps");
+      navigate("/SlotSwapper/your-swaps");
       
     } catch (err) {
       alert(err instanceof Error ? err.message : "Swap request failed");

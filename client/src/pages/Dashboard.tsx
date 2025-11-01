@@ -39,7 +39,7 @@ const Dashboard: React.FC = () => {
         const decoded: DecodedToken = jwtDecode(token);
         setUser(decoded);
 
-        const response = await fetch("http://localhost:3000/api/slot/all-slots", {
+        const response = await fetch("https://slotswapper1.onrender.com/api/slot/all-slots", {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -83,7 +83,7 @@ const Dashboard: React.FC = () => {
       <div className="bg-red-500/20 border border-red-500/50 rounded-2xl p-8 text-center max-w-md">
         <div className="text-4xl mb-4">⚠️</div>
         <p className="text-red-200 text-xl mb-4">{error}</p>
-        <Link to="/login" className="px-6 py-3 bg-white/10 hover:bg-white/20 text-white rounded-xl transition-all">
+        <Link to="/SlotSwapper/login" className="px-6 py-3 bg-white/10 hover:bg-white/20 text-white rounded-xl transition-all">
           Return to Login
         </Link>
       </div>
@@ -122,7 +122,7 @@ const Dashboard: React.FC = () => {
               {/* Quick Actions */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <Link
-                  to="/create-slot"
+                  to="/SlotSwapper/create-slot"
                   className="group bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 rounded-xl p-4 text-center transition-all duration-300 transform hover:scale-105 shadow-2xl shadow-cyan-500/25"
                 >
                   <div className="text-2xl mb-2">➕</div>
@@ -130,7 +130,7 @@ const Dashboard: React.FC = () => {
                 </Link>
 
                 <Link
-                  to="/my-slots"
+                  to="/SlotSwapper/my-slots"
                   className="group bg-white/10 hover:bg-white/20 border border-white/20 rounded-xl p-4 text-center transition-all duration-300 transform hover:scale-105"
                 >
                   <div className="text-2xl mb-2">📋</div>
@@ -138,7 +138,7 @@ const Dashboard: React.FC = () => {
                 </Link>
 
                 <Link
-                  to="/slot-swaps"
+                  to="/SlotSwapper/slot-swaps"
                   className="group bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 rounded-xl p-4 text-center transition-all duration-300 transform hover:scale-105 shadow-2xl shadow-green-500/25"
                 >
                   <div className="text-2xl mb-2">🔄</div>
@@ -164,7 +164,7 @@ const Dashboard: React.FC = () => {
               <h3 className="text-2xl font-bold text-cyan-300 mb-2">No Slots Available</h3>
               <p className="text-gray-400 mb-6">Be the first to create a time slot!</p>
               <Link
-                to="/create-slot"
+                to="/SlotSwapper/create-slot"
                 className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl font-semibold hover:from-cyan-600 hover:to-blue-700 transition-all transform hover:scale-105"
               >
                 Create Your First Slot

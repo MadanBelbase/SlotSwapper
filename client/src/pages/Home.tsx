@@ -40,7 +40,7 @@ const Home: React.FC = () => {
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 mb-16">
           <a
-            href="/login"
+            href="/SlotSwapper/login"
             className="group relative px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-2xl font-semibold text-lg hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 shadow-2xl shadow-cyan-500/25 hover:shadow-cyan-500/40"
           >
             <span className="relative z-10 flex items-center justify-center">
@@ -52,7 +52,7 @@ const Home: React.FC = () => {
           </a>
           
           <a
-            href="/signup"
+            href="/SlotSwapper/signup"
             className="group px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl font-semibold text-lg hover:bg-white/20 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl"
           >
             <span className="flex items-center justify-center">

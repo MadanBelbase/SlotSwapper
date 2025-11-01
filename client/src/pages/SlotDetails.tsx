@@ -48,7 +48,7 @@ const SlotPage: React.FC = () => {
         const decoded = jwtDecode<DecodedToken>(token);
         setUserEmail(decoded.email);
 
-        const slotRes = await fetch(`http://localhost:3000/api/slot/${slotId}`, {
+        const slotRes = await fetch(`https://slotswapper1.onrender.com/api/slot/${slotId}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -78,7 +78,7 @@ const SlotPage: React.FC = () => {
     if (!token) return;
 
     try {
-      const res = await fetch(`http://localhost:3000/api/slot/${slotId}`, {
+      const res = await fetch(`https://slotswapper1.onrender.com/api/slot/${slotId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
         body: JSON.stringify({ name, description, startTime, endTime, isSwappable }),
@@ -98,14 +98,14 @@ const SlotPage: React.FC = () => {
     if (!token) return;
 
     try {
-      const res = await fetch(`http://localhost:3000/api/slot/${slotId}`, {
+      const res = await fetch(`https://slotswapper1.onrender.com/api/slot/${slotId}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
       });
 
       if (!res.ok) throw new Error("Failed to delete slot");
       setShowDeleteModal(false);
-      navigate("/my-slots");
+      navigate("/SlotSwapper/my-slots");
     } catch (err) {
       alert(err instanceof Error ? err.message : "Delete failed");
     }
@@ -297,7 +297,7 @@ const SlotPage: React.FC = () => {
 
                         {/* Swap Button */}
                         <button
-                          onClick={() => navigate(`/swap/${slotId}`)}
+                          onClick={() => navigate(`/SlotSwapper/swap/${slotId}`)}
                           className="px-4 py-2 bg-yellow-500/20 hover:bg-yellow-500/30 border border-yellow-500/50 text-yellow-300 rounded-xl font-semibold transition-all transform hover:scale-105 flex items-center space-x-2"
                         >
                           <span>📋</span>
