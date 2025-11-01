@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import authRouter from './routes/auth';
 import slotsRouter from './routes/slot';
-import swapRequestRoutes from "./routes/swapRequestRoutes"; 
+import swapRequestRoutes from "./routes/swapRequestRoutes";
 
 const app = express();
 
@@ -10,7 +10,10 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: 'http://localhost:5173', // your React frontend
+    origin: [
+      'http://localhost:5173',
+      'https://MadanBelbase.github.io/SlotSwapper'
+    ],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
@@ -19,7 +22,8 @@ app.use(
 
 // Mount routes
 app.use('/api/auth', authRouter);
-app.use('/api/slot', slotsRouter); 
-app.use('/api/swap', swapRequestRoutes); 
+app.use('/api/slot', slotsRouter);
+app.use('/api/swap', swapRequestRoutes);
 
 export default app;
+
