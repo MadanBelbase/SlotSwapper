@@ -6,24 +6,44 @@ import swapRequestRoutes from "./routes/swapRequestRoutes";
 
 const app = express();
 
-// Middleware
-app.use(express.json());
+// ✅ Define allowed origins
+const allowedOrigins = [
+  'http://localhost:5173',         // for local dev
+  'https://madanbelbase.github.io' // ✅ correct GitHub Pages origin (case-insensitive)
+];
+
+// ✅ CORS middleware should be placed before express.json() and routes
 app.use(
   cors({
-    origin: [
-      'http://localhost:5173',
-      'https://MadanBelbase.github.io'
-    ],
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
   })
 );
 
-// Mount routes
+// ✅ Handle preflight OPTIONS requests
+app.options('*', cors());
+
+// Parse JSON bodies
+app.use(express.json());
+
+// ✅ Mount routes
 app.use('/api/auth', authRouter);
 app.use('/api/slot', slotsRouter);
 app.use('/api/swap', swapRequestRoutes);
 
+// ✅ Test route to verify CORS
+app.get('/', (req, res) => {
+  res.json({ message: 'CORS is working properly!' });
+});
+
 export default app;
+
 
