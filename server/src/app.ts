@@ -12,7 +12,7 @@ app.use(
   cors({
     origin: [
       'http://localhost:5173',
-      'https://MadanBelbase.github.io/SlotSwapper'
+      'https://MadanBelbase.github.io'
     ],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
